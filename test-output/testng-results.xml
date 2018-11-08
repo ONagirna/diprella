@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2018-11-08T18:44:21Z" name="Default suite" finished-at="2018-11-08T18:44:21Z" duration-ms="52">
+    <groups>
+    </groups>
+    <test started-at="2018-11-08T18:44:21Z" name="Default test" finished-at="2018-11-08T18:44:21Z" duration-ms="52">
+      <class name="com.diprella.tests.OpenSignUpPageTest">
+        <test-method is-config="true" signature="beforeSuite(org.testng.ITestContext)[pri:0, instance:com.diprella.tests.OpenSignUpPageTest@3af9c5b7]" started-at="2018-11-08T20:44:14Z" name="beforeSuite" finished-at="2018-11-08T20:44:21Z" duration-ms="6741" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@43d455c9]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeSuite -->
+        <test-method signature="testTest()[pri:0, instance:com.diprella.tests.OpenSignUpPageTest@3af9c5b7]" started-at="2018-11-08T20:44:21Z" name="testTest" finished-at="2018-11-08T20:44:21Z" duration-ms="23" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testTest -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:com.diprella.tests.OpenSignUpPageTest@3af9c5b7]" started-at="2018-11-08T20:44:26Z" name="afterTest" finished-at="2018-11-08T20:44:26Z" duration-ms="129" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- com.diprella.tests.OpenSignUpPageTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
