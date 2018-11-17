@@ -2,31 +2,24 @@
 <testng-results total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2018-11-08T18:44:21Z" name="Default suite" finished-at="2018-11-08T18:44:21Z" duration-ms="52">
+  <suite started-at="2018-11-17T10:20:00Z" name="Default suite" finished-at="2018-11-17T10:20:02Z" duration-ms="1477">
     <groups>
     </groups>
-    <test started-at="2018-11-08T18:44:21Z" name="Default test" finished-at="2018-11-08T18:44:21Z" duration-ms="52">
-      <class name="com.diprella.tests.OpenSignUpPageTest">
-        <test-method is-config="true" signature="beforeSuite(org.testng.ITestContext)[pri:0, instance:com.diprella.tests.OpenSignUpPageTest@3af9c5b7]" started-at="2018-11-08T20:44:14Z" name="beforeSuite" finished-at="2018-11-08T20:44:21Z" duration-ms="6741" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@43d455c9]]>
-              </value>
-            </param>
-          </params>
+    <test started-at="2018-11-17T10:20:00Z" name="Default test" finished-at="2018-11-17T10:20:02Z" duration-ms="1477">
+      <class name="com.diprella.tests.SignUpTest">
+        <test-method is-config="true" signature="beforeSuite()[pri:0, instance:com.diprella.tests.SignUpTest@3af9c5b7]" started-at="2018-11-17T12:19:55Z" name="beforeSuite" finished-at="2018-11-17T12:20:00Z" duration-ms="4763" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method signature="testTest()[pri:0, instance:com.diprella.tests.OpenSignUpPageTest@3af9c5b7]" started-at="2018-11-08T20:44:21Z" name="testTest" finished-at="2018-11-08T20:44:21Z" duration-ms="23" status="PASS">
+        <test-method signature="openSignUpViaBtnOnHeader()[pri:0, instance:com.diprella.tests.SignUpTest@3af9c5b7]" started-at="2018-11-17T12:20:00Z" name="openSignUpViaBtnOnHeader" finished-at="2018-11-17T12:20:02Z" duration-ms="1455" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testTest -->
-        <test-method is-config="true" signature="afterTest()[pri:0, instance:com.diprella.tests.OpenSignUpPageTest@3af9c5b7]" started-at="2018-11-08T20:44:26Z" name="afterTest" finished-at="2018-11-08T20:44:26Z" duration-ms="129" status="PASS">
+        </test-method> <!-- openSignUpViaBtnOnHeader -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:com.diprella.tests.SignUpTest@3af9c5b7]" started-at="2018-11-17T12:20:07Z" name="afterTest" finished-at="2018-11-17T12:20:07Z" duration-ms="99" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- com.diprella.tests.OpenSignUpPageTest -->
+      </class> <!-- com.diprella.tests.SignUpTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
