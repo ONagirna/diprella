@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="SignUpTests" parallel="tests" thread-count="2"
+	group-by-instances="true">
+
+	<test name="UI tests: Authentication">
+		<classes>
+			<class name="com.diprella.tests.SignUpTest"></class>
+		</classes>
+	</test>
+
+</suite>

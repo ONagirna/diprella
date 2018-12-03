@@ -30,8 +30,10 @@ public class SignUpPage extends BasePage {
 	public void fillInSignUpForm(User user) {
 		enterFirstname(user.getFirstname());
 		enterLastname(user.getLastname());
-		
-		
+		enterEmail(user.getEmail());
+		enterPassword(user.getPassword());
+		getAgreeTermsCheckbox().click();
+		getSumbitButton().click();
 	}
 	
 	public void enterFirstname(String firstname) {
@@ -44,12 +46,14 @@ public class SignUpPage extends BasePage {
 		lastNameInputField.sendKeys(lastname);
 	}
 	
-	public WebElement getEmailInputField() {
-		return emailInputField;
+	public void enterEmail(String email) {
+		emailInputField.clear();
+		emailInputField.sendKeys(email);
 	}
 	
-	public WebElement getPasswordInputField() {
-		return passwordInputField;
+	public void enterPassword(String password) {
+		passwordInputField.clear();
+		passwordInputField.sendKeys(password);
 	}
 	
 	public WebElement getAgreeTermsCheckbox() {
@@ -57,7 +61,7 @@ public class SignUpPage extends BasePage {
 	}
 	
 	public WebElement getSumbitButton() {
-		return  submitButton;
+		return submitButton;
 	}
 
 }
