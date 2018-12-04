@@ -27,13 +27,14 @@ public class SignUpPage extends BasePage {
 	WebElement submitButton;
 	
 	
-	public void fillInSignUpForm(User user) {
+	public HomePageForRegistered doSignUp(User user) {
 		enterFirstname(user.getFirstname());
 		enterLastname(user.getLastname());
 		enterEmail(user.getEmail());
 		enterPassword(user.getPassword());
 		getAgreeTermsCheckbox().click();
 		getSumbitButton().click();
+		return initPage(HomePageForRegistered.class);
 	}
 	
 	public void enterFirstname(String firstname) {

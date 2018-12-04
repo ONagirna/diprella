@@ -1,34 +1,69 @@
 package com.diprella.tests;
 
 import static com.diprella.framework.BasePage.initPage;
-import static com.diprella.models.UserData.USER_1;
-import static com.diprella.models.UserData.USER_2;
+import static org.testng.Assert.assertTrue;
 
-import org.testng.annotations.DataProvider;
+import java.net.MalformedURLException;
+import java.util.UUID;
+
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.diprella.framework.BaseTest;
 import com.diprella.models.User;
-import com.diprella.pages.HomePage;
+import com.diprella.pages.HomePageForNonRegistered;
+import com.diprella.pages.HomePageForRegistered;
 import com.diprella.pages.SignUpPage;
+import com.diprella.pages.UserIconDropdown;
+import static com.diprella.framework.Utils.waitForElementVisibility;
 
-public class SignUpTest extends BaseTest {
-	
-	private HomePage homePage;
+public class SignUpTest extends BaseTest{
+
+	private HomePageForNonRegistered homePageNonRegistered;
+	private HomePageForRegistered homePageRegistered;
 	private SignUpPage signUpPage;
+	private UserIconDropdown userIconDropdown;
+	String randomEmail;
 	
-	
-	@Test(dataProvider = "testData")
-	public void openSignUpViaBtnOnHeader(User user) {
-		homePage = initPage(HomePage.class);
-		signUpPage = homePage.clickSignUpBtnOnHeader();
-		signUpPage.fillInSignUpForm(user);
+	@BeforeMethod(alwaysRun = true)
+	public void openHomePage() throws MalformedURLException {
+		homePageNonRegistered = initPage(HomePageForNonRegistered.class);
+		randomEmail = "random-" + UUID.randomUUID().toString() + "@gmail.com";
+	    }
+
+
+	@Test
+	public void signUpAfterClickBtnOnHeader() {
+		signUpPage = homePageNonRegistered.openSignUpFormByClickOn(homePageNonRegistered.signUpBtnInHeader);
+		homePageRegistered = signUpPage.doSignUp(new User("Oksana", "Testivna", randomEmail, "randomPassword"));
+		waitForElementVisibility(homePageRegistered.userProfileIcon);
+		assertTrue(homePageRegistered.userProfileIcon.isDisplayed(),
+				"User profile icon should be displayed in top right corner after user has signed up");
+	}
+
+	@Test
+	public void signUpAfterClickStartLearningOnBanner() {
+		signUpPage = homePageNonRegistered.openSignUpFormByClickOn(homePageNonRegistered.signUpStartLearningBtnOnBanner);
+		homePageRegistered = signUpPage.doSignUp(new User("Oksana", "Testivna", randomEmail, "randomPassword"));
+		waitForElementVisibility(homePageRegistered.userProfileIcon);
+		assertTrue(homePageRegistered.userProfileIcon.isDisplayed(),
+				"User profile icon should be displayed in top right corner after user has signed up");
+	}
+
+	@Test
+	public void signUpAfterClickStartTeachingOnBanner() {
+		signUpPage = homePageNonRegistered.openSignUpFormByClickOn(homePageNonRegistered.signUpStartTeachingBtnOnBanner);
+		homePageRegistered = signUpPage.doSignUp(new User("Oksana", "Testivna", randomEmail, "randomPassword"));
+		waitForElementVisibility(homePageRegistered.userProfileIcon);
+		assertTrue(homePageRegistered.userProfileIcon.isDisplayed(),
+				"User profile icon should be displayed in top right corner after user has signed up");
 	}
 	
-  // Trial example of data driven test case. Need to have access to registered users in DB to create dynamically new users with unique emails
-	// Multithread is not working now
-	@DataProvider(name = "testData")
-	public static Object[][] testData() {
-		return new Object[][] { { USER_1 }, { USER_2 } };
-	}
+
+    @AfterMethod(alwaysRun = true)
+    public void doSignOut() {
+        userIconDropdown = homePageRegistered.expandUserIconDropdown();
+        userIconDropdown.doSignOut();
+    }
 }
