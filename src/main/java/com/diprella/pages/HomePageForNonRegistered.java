@@ -31,9 +31,10 @@ public class HomePageForNonRegistered extends BasePage {
 		return initPage(SignUpPage.class);
 	}
 
-	public SignUpPage clickSignUpBtnOnHeader() {
-		signUpBtnInHeader.click();
-		return initPage(SignUpPage.class);
+	public SignInPage openSignInFormByClickOn(WebElement button) {
+		waitForElementVisibility(button);
+		button.click();
+		return initPage(SignInPage.class);
 	}
 
 }

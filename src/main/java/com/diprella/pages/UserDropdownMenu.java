@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 
 import com.diprella.framework.BasePage;
 
-public class UserIconDropdown extends BasePage {
+public class UserDropdownMenu extends BasePage {
 
 	public static final String SIGNOUT_FROM_DROPDOWN_OPTOPN_XPATH = "//section[@class='user__dropdown__wrapper ng-star-inserted']//a[4]";
 

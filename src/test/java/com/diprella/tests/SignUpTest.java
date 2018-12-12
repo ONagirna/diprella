@@ -15,7 +15,7 @@ import com.diprella.models.User;
 import com.diprella.pages.HomePageForNonRegistered;
 import com.diprella.pages.HomePageForRegistered;
 import com.diprella.pages.SignUpPage;
-import com.diprella.pages.UserIconDropdown;
+import com.diprella.pages.UserDropdownMenu;
 import static com.diprella.framework.Utils.waitForElementVisibility;
 
 public class SignUpTest extends BaseTest{
@@ -23,7 +23,7 @@ public class SignUpTest extends BaseTest{
 	private HomePageForNonRegistered homePageNonRegistered;
 	private HomePageForRegistered homePageRegistered;
 	private SignUpPage signUpPage;
-	private UserIconDropdown userIconDropdown;
+	private UserDropdownMenu userDropdownMenu;
 	String randomEmail;
 	
 	@BeforeMethod(alwaysRun = true)
@@ -31,7 +31,6 @@ public class SignUpTest extends BaseTest{
 		homePageNonRegistered = initPage(HomePageForNonRegistered.class);
 		randomEmail = "random-" + UUID.randomUUID().toString() + "@gmail.com";
 	    }
-
 
 	@Test
 	public void signUpAfterClickBtnOnHeader() {
@@ -59,11 +58,12 @@ public class SignUpTest extends BaseTest{
 		assertTrue(homePageRegistered.userProfileIcon.isDisplayed(),
 				"User profile icon should be displayed in top right corner after user has signed up");
 	}
-	
 
     @AfterMethod(alwaysRun = true)
     public void doSignOut() {
-        userIconDropdown = homePageRegistered.expandUserIconDropdown();
-        userIconDropdown.doSignOut();
+        userDropdownMenu = homePageRegistered.expandUserDropdownMenu();
+        homePageNonRegistered = userDropdownMenu.doSignOut();
+		waitForElementVisibility(homePageNonRegistered.signInLinkInHeader);
+
     }
 }

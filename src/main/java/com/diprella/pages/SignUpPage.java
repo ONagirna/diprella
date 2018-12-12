@@ -7,23 +7,30 @@ import com.diprella.framework.BasePage;
 import com.diprella.models.User;
 
 public class SignUpPage extends BasePage {
-
-	@FindBy(xpath = "//input[@formcontrolname='first_name']")
+	
+	public static final String FIRST_NAME_INPUT_XPATH = "//input[@formcontrolname='first_name']";
+	public static final String LAST_NAME_INPUT_XPATH = "//input[@formcontrolname='last_name']";
+	public static final String EMAIL_INPUT_XPATH = "//input[@formcontrolname='email']";
+	public static final String PASSWORD_INPUT_XPATH = "//input[@formcontrolname='password']";
+	public static final String AGREE_TERMS_CHECKBOX_XPATH = "//label[@class='terms']";
+	public static final String SUBMIT_BUTTON_XPATH = "//button[@type='submit']";
+	
+	@FindBy(xpath = FIRST_NAME_INPUT_XPATH)
 	WebElement firstNameInputField;
 	
-	@FindBy(xpath = "//input[@formcontrolname='last_name']")
+	@FindBy(xpath = LAST_NAME_INPUT_XPATH)
 	WebElement lastNameInputField;
 	
-	@FindBy(xpath = "//input[@formcontrolname='email']")
+	@FindBy(xpath = EMAIL_INPUT_XPATH)
 	WebElement emailInputField;
 	
-	@FindBy(xpath = "//input[@formcontrolname='password']")
+	@FindBy(xpath = PASSWORD_INPUT_XPATH)
 	WebElement passwordInputField;
 	
-	@FindBy(xpath = "//label[@class='terms']")
+	@FindBy(xpath = AGREE_TERMS_CHECKBOX_XPATH)
 	WebElement agreeTermsCheckbox;
 	
-	@FindBy(xpath = "//button[@type='submit']")
+	@FindBy(xpath = SUBMIT_BUTTON_XPATH)
 	WebElement submitButton;
 	
 	
