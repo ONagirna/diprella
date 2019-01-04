@@ -10,6 +10,13 @@ import java.util.List;
 import static com.diprella.framework.BasePage.driver;
 
 public class Utils {
+	
+	
+	public static void waitForElementAndClick(WebElement element) {
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.elementToBeClickable(element));
+		element.click();
+	}
 
 	public static void waitForElementVisibility(String xpath) {
 		WebDriverWait wait = new WebDriverWait(driver, 10);
@@ -40,9 +47,9 @@ public class Utils {
 		return driver.findElements(By.xpath(xpath)).size() > 0;
 	}
 
-	public static boolean isElementDisplayed(String xpath) {
-		try {
-			driver.findElement(By.xpath(xpath)).isDisplayed();
+	public static boolean isElementDisplayed(WebElement element) {
+		waitForElementVisibility(element);
+		try { element.isDisplayed();
 			return true;
 		} catch (org.openqa.selenium.NoSuchElementException e) {
 			return false;
